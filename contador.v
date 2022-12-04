@@ -1,9 +1,11 @@
+//CONTADOR DE CUENTA ARBITRARIA 10-4-12-9-2-1-3-6
+
 module JK(output reg Q,output wire nQ,input wire J,input wire K, input wire C);
     not (nQ,Q);
 
     initial
     begin
-        Q=0; // Inicializa el contador en 0
+            Q=0; // Inicializa el biestable en 0
     end
     always @(negedge C)
         case({J,K})
