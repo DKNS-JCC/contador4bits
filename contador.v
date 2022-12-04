@@ -20,15 +20,15 @@ module contador(output wire[3:0]Q, input wire C);
     wire AQ1Q0, AQ3nQ0, AnQ2nQ0, AnQ3nQ2,AQ3nQ1; // Salidas intermedias AND
     wire OQ1Q0Q3nQ0,OQ1Q3,OnQ3nQ2Q3nQ1; // Salidas intermedias OR
 
-    and A0 (AQ1Q0, Q[1], Q[0]); // AND Q2 y Q3
-    and A1 (AQ3nQ0, Q[3], nQ[0]); // AND Q0 y nQ3
-    and A2 (AnQ2nQ0, nQ[2], nQ[0]); // AND nQ1 y nQ3
-    and A3 (AnQ3nQ2, nQ[3], nQ[2]); // AND nQ0 y nQ1
-    and A4 (AQ3nQ1, Q[3], nQ[1]); // AND Q0 y nQ2
+    and A0 (AQ1Q0, Q[1], Q[0]); // AND Q1 y Q0
+    and A1 (AQ3nQ0, Q[3], nQ[0]); // AND Q3 y nQ0
+    and A2 (AnQ2nQ0, nQ[2], nQ[0]); // AND nQ2 y nQ0
+    and A3 (AnQ3nQ2, nQ[3], nQ[2]); // AND nQ3 y nQ2
+    and A4 (AQ3nQ1, Q[3], nQ[1]); // AND Q3 y nQ1
 
-    or O0 (OQ1Q0Q3nQ0, AQ1Q0, AQ3nQ0); // OR Q2Q3 y Q0nQ3
-    or O1 (OQ1Q3, Q[1], Q[3]); // OR Q2 y Q0
-    or O2 (OnQ3nQ2Q3nQ1, AnQ3nQ2, AQ3nQ1); // OR nQ0nQ1 y Q0nQ2
+    or O0 (OQ1Q0Q3nQ0, AQ1Q0, AQ3nQ0); // OR Q1Q0 y Q3nQ0
+    or O1 (OQ1Q3, Q[1], Q[3]); // OR Q1 y Q3
+    or O2 (OnQ3nQ2Q3nQ1, AnQ3nQ2, AQ3nQ1); // OR nQ3nQ2 y Q3nQ1
 
     JK jk3 (Q[3], nQ[3],Q[2],nQ[2],C); 
     JK jk2 (Q[2], nQ[2],OQ1Q0Q3nQ0,OQ1Q3,C);
