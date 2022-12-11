@@ -1,4 +1,5 @@
 //CONTADOR DE CUENTA ARBITRARIA 10-4-12-9-2-1-3-6
+//DESARROLLADO POR RBA y JCC
 
 module JK(output reg Q,output wire nQ,input wire J,input wire K, input wire C);
     not (nQ,Q);
